@@ -13,7 +13,15 @@ import { useGlobalContext } from "../../States/Contet";
 
 const SongBar = () => {
   const { masterSong, isPlaying } = useSelector((state) => state.mainSong);
-  const { progress, setProgress } = useGlobalContext();
+  const {
+    progress,
+    setProgress,
+    resetEverything,
+    currTime,
+    setCurrTime,
+    duration,
+    setDuration,
+  } = useGlobalContext();
   const dispatch = useDispatch();
   const handleMaster = () => {
     if (isPlaying) {
@@ -24,7 +32,8 @@ const SongBar = () => {
   };
 
   useEffect(() => {
-    if (masterSong) {
+    if (masterSong.mp3) {
+      setDuration(formatTime(masterSong?.mp3?.duration));
       if (isPlaying) {
         masterSong.mp3.play();
         masterSong?.mp3?.play();
@@ -32,12 +41,35 @@ const SongBar = () => {
         masterSong?.mp3?.pause();
       }
     }
+    if (isPlaying) {
+      setInterval(() => {
+        if (progress === 100) {
+          dispatch(pauseMaster());
+          resetEverything();
+        } else {
+          setProgress(
+            (masterSong.mp3.currentTime / masterSong.mp3.duration) * 100
+          );
+          setCurrTime(formatTime(masterSong.mp3.currentTime));
+        }
+      }, 1000);
+    }
   }, [masterSong, isPlaying]);
 
   const changeProgress = (e) => {
     setProgress(e.target.value);
     masterSong.mp3.currentTime = e.target.value;
     console.log(progress);
+  };
+
+  const formatTime = (durationInSeconds) => {
+    let minutes = Math.floor(durationInSeconds / 60);
+    let seconds = Math.round(durationInSeconds % 60);
+    let formattedDuration = `${minutes < 10 ? "0" + minutes : minutes}:${
+      seconds < 9 ? "0" + seconds : seconds
+    }`;
+
+    return formattedDuration;
   };
 
   return (
@@ -80,7 +112,7 @@ const SongBar = () => {
           <BiRepeat />
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-xs">00:00</span>
+          <span className="text-xs">{currTime}</span>
           <input
             className="w-full block"
             type="range"
@@ -91,7 +123,7 @@ const SongBar = () => {
             min={0}
             max={100}
           />
-          <span className="text-xs">00:00</span>
+          <span className="text-xs">{duration}</span>
         </div>
       </div>
       <div className="w-2/12 flex items-center gap-2">
