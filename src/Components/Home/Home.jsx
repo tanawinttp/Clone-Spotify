@@ -15,37 +15,37 @@ const songs = [
     id: Math.random() * Date.now(),
     title: "Tum Hi Ho",
     artist: "Arijit Singh",
-    mp3: new Audio("/assets/mp3/Tum Hi Ho.mp3"),
+    mp3: new Audio("/src/assets/mp3/Tum Hi Ho.mp3"),
   },
   {
     id: Math.random() * Date.now(),
     title: "Ae Dil Hai Mushkil",
     artist: "Arijit Singh",
-    mp3: new Audio("/assets/mp3/ae.mp3"),
+    mp3: new Audio("/src/assets/mp3/ae.mp3"),
   },
   {
     id: Math.random() * Date.now(),
     title: "Mirchi Awards",
     artist: "Arijit Singh",
-    mp3: new Audio("/assets/mp3/Mashup.mp3"),
+    mp3: new Audio("/src/assets/mp3/Mashup.mp3"),
   },
   {
     id: Math.random() * Date.now(),
     title: "Judaiyaan",
     artist: "Arijit Singh",
-    mp3: new Audio("/assets/mp3/Judaiyaan.mp3"),
+    mp3: new Audio("/src/assets/mp3/Judaiyaan.mp3"),
   },
   {
     id: Math.random() * Date.now(),
     title: "Heeriye",
     artist: "Arijit Singh",
-    mp3: new Audio("/assets/mp3/Heeriye.m4a"),
+    mp3: new Audio("/src/assets/mp3/Heeriye.m4a"),
   },
   {
     id: Math.random() * Date.now(),
     title: "Tu hi Hai Aashiqui",
     artist: "Arijit Singh",
-    mp3: new Audio("/assets/mp3/Tu Hi Hai Aashiqui.mp3"),
+    mp3: new Audio("/src/assets/mp3/Tu Hi Hai Aashiqui.mp3"),
   },
 ];
 
@@ -92,15 +92,7 @@ const Home = () => {
           </span>
           <span>Show All</span>
         </div>
-        <div className="grid gap-6 grid-cols-5">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-        </div>
+        <div className="grid gap-6 grid-cols-5">{/* <Card /> */}</div>
       </div>
       <SongBar />
     </Layout>

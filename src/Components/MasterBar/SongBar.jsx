@@ -76,7 +76,7 @@ const SongBar = () => {
     <div className="fixed w-full flex items-center justify-between bottom-0 left-0 h-20 bg-black">
       <div className="w-2/12">
         <div className="flex items-center gap-2">
-          <img className="h-12" src="/public/assets/card.jpg" alt="" />
+          <img className="h-12" src="/src/assets/card.jpg" alt="" />
           <div>
             <h3 className="text-xs font-semibold mb-1">
               {masterSong?.title || "Arijit Singh"}

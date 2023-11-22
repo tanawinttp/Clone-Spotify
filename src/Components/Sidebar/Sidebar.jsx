@@ -10,6 +10,7 @@ const Sidebar = () => {
   return (
     <div className="w-1/4 fixed left-0 top-0 sidebar">
       <div className="nav secondary_bg rounded-lg p-6">
+        <img className="w-[100px]" src="/src/assets/white_logo.png" alt="" />
         <div className="flex items-center gap-4">
           <FcHome className="font-bold text-xl" />
           <span>Home</span>

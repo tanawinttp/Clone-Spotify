@@ -7,7 +7,7 @@ const Login = () => {
     <>
       <header className="px-12 py-8">
         <div className="logo">
-          <img src="/public/assets/white_logo.png" width={120} alt="" />
+          <img src="/src/assets/white_logo.png" width={120} alt="" />
         </div>
       </header>
 

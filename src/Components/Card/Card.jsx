@@ -28,7 +28,7 @@ const Card = ({ song }) => {
     song && (
       <div className="card col-span-1 p-4 rounded-lg">
         <div className="relative">
-          <img src="/public/assets/card1.jpg" alt="" />
+          <img src="/src/assets/card1.jpg" alt="" />
           {masterSong.id === song.id && isPlaying ? (
             <button
               onClick={handlePause}

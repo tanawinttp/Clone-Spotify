@@ -23,7 +23,7 @@ const Signup = () => {
       <div className="container py-8 bg-white">
         <div className="logo text-center">
           <img
-            src="/public/assets/s_logo_black.png"
+            src="/src/assets/s_logo_black.png"
             className="mx-auto"
             width={140}
             alt=""
